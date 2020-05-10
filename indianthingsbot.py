@@ -3,7 +3,8 @@ import pdb
 import re
 import os
 
-
+SUBREDDIT_NAME = 'bakchodi'
+KEYWORDS = ['just indian', 'indian things', 'subtle indian', 'indian traits', 'bakchodi']
 USERNAME = 'justindianstuff'
 PASSWORD = 'Robinishood69'
 CLIENT_ID = 'VRi20mq9xuDKuQ'
@@ -34,15 +35,17 @@ else:
         posts_replied_to = list(filter(None, posts_replied_to))
 
 # Pull the hottest 10 entries from a subreddit of your choosing
-subreddit = reddit.subreddit('subtleindiantraits')
-for submission in subreddit.new(limit=10):
-    #print(submission.title)
+subreddit = reddit.subreddit(SUBREDDIT_NAME)
+for submission in subreddit.new(limit=1000):
+    print(submission.title)
 
     # Make sure you didn't already reply to this post
     if submission.id not in posts_replied_to:
 
         # Not case sensitive
-        if re.search("Indian mom", submission.title, re.IGNORECASE):
+        # if re.search("Indian mom", submission.title, re.IGNORECASE):
+        # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
+        if any(k.lower() in submission.title.lower() for k in KEYWORDS):
             # Reply
             submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
             print("Bot replying to : ", submission.title)

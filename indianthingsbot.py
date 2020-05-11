@@ -5,31 +5,40 @@ import os
 
 # THIS BOT IS FOR NON INDIAN SUBS
 # Already run on  - 'memes','meme','subtleasiantraits'
-subredditnames = ['askreddit', 'jokes', 'funny']
+USERNAME = 'justindianstuff'
+PASSWORD = 'Robinishood69'
+CLIENT_ID = 'VRi20mq9xuDKuQ'
+CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk' 
+USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
+
+subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny']
+POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg."
+KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
+
+NEW_LIMIT = 1000
+RISING_LIMIT = 1000
+HOT_LIMIT = 100
+TOP_LIMIT = 100
+
+
+# Create the Reddit instance and log in
+reddit = praw.Reddit('bot')
+
+print("Authenticating...")
+reddit = praw.Reddit(
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    password=PASSWORD,
+    user_agent=USER_AGENT,
+    username=USERNAME)
+print("Authenticaed as {}".format(reddit.user.me()))
+
+
 for mysub in subredditnames:    
+    SUBREDDIT_NAME = mysub
     print(' ')
     print('---')
     print('Subreddit : '+mysub)        
-
-    SUBREDDIT_NAME = mysub
-    KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
-    USERNAME = 'justindianstuff'
-    PASSWORD = 'Robinishood69'
-    CLIENT_ID = 'VRi20mq9xuDKuQ'
-    CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk' 
-    USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
-
-    # Create the Reddit instance and log in
-    reddit = praw.Reddit('bot')
-
-    print("Authenticating...")
-    reddit = praw.Reddit(
-        client_id=CLIENT_ID,
-        client_secret=CLIENT_SECRET,
-        password=PASSWORD,
-        user_agent=USER_AGENT,
-        username=USERNAME)
-    print("Authenticaed as {}".format(reddit.user.me()))
 
     # Create a list
     if not os.path.isfile("posts_replied_to.txt"):
@@ -48,7 +57,7 @@ for mysub in subredditnames:
 
     print('new')
 
-    for submission in subreddit.new(limit=1000):
+    for submission in subreddit.new(limit=NEW_LIMIT):
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
@@ -59,7 +68,7 @@ for mysub in subredditnames:
             # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
             if any(k.lower() in submission.title.lower() for k in KEYWORDS):
                 # Reply
-                submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
+                submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
 
                 # Store id in list
@@ -74,7 +83,7 @@ for mysub in subredditnames:
 
     print('rising')
 
-    for submission in subreddit.rising(limit=1000):
+    for submission in subreddit.rising(limit=RISING_LIMIT):
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
@@ -85,7 +94,7 @@ for mysub in subredditnames:
             # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
             if any(k.lower() in submission.title.lower() for k in KEYWORDS):
                 # Reply
-                submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
+                submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
 
                 # Store id in list
@@ -99,7 +108,7 @@ for mysub in subredditnames:
 
     print('hot')
 
-    for submission in subreddit.hot(limit=1000):
+    for submission in subreddit.hot(limit=HOT_LIMIT):
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
@@ -110,7 +119,7 @@ for mysub in subredditnames:
             # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
             if any(k.lower() in submission.title.lower() for k in KEYWORDS):
                 # Reply
-                submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
+                submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
 
                 # Store id in list
@@ -125,7 +134,7 @@ for mysub in subredditnames:
 
     print('top')
 
-    for submission in subreddit.top(limit=1000):
+    for submission in subreddit.top(limit=TOP_LIMIT):
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
@@ -136,7 +145,7 @@ for mysub in subredditnames:
             # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
             if any(k.lower() in submission.title.lower() for k in KEYWORDS):
                 # Reply
-                submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
+                submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
 
                 # Store id in list

@@ -2,6 +2,10 @@ import praw
 import pdb
 import re
 import os
+import time
+import math
+
+stime = time.time()
 
 # THIS BOT IS FOR NON INDIAN SUBS
 # Already run on  - 'memes','meme','subtleasiantraits'
@@ -11,15 +15,19 @@ CLIENT_ID = 'VRi20mq9xuDKuQ'
 CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk' 
 USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
-subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny']
+# subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
+subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts','Cricket', 'Nostalgia','ImaginaryMonsters', 'ExplainLikeImFive', 'BossFight', 'BikiniBottomTwitter', 'Tinder', 'CozyPlaces', 'FoodPorn', 'TIFU']
 POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg."
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 
 NEW_LIMIT = 1000
 RISING_LIMIT = 1000
-HOT_LIMIT = 100
-TOP_LIMIT = 100
+HOT_LIMIT = 1000
+TOP_LIMIT = 1000
+NSFW_FLAG = False
+# and (submission.over_18 == NSFW_FLAG) 
 
+totalcount = 0
 
 # Create the Reddit instance and log in
 reddit = praw.Reddit('bot')
@@ -61,7 +69,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.over_18 == False) and (submission.archived == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -74,6 +82,7 @@ for mysub in subredditnames:
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
+                totalcount = totalcount + 1
 
 
     # Write updated list to file
@@ -87,7 +96,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.over_18 == False) and (submission.archived == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -100,6 +109,7 @@ for mysub in subredditnames:
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
+                totalcount = totalcount + 1
 
     # Write updated list to file
     with open("posts_replied_to.txt", "w") as f:
@@ -112,7 +122,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.over_18 == False) and (submission.archived == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -125,6 +135,7 @@ for mysub in subredditnames:
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
+                totalcount = totalcount + 1
 
     # Write updated list to file
     with open("posts_replied_to.txt", "w") as f:
@@ -138,7 +149,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.over_18 == False) and (submission.archived == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -151,6 +162,7 @@ for mysub in subredditnames:
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
+                totalcount = totalcount + 1
 
 
 
@@ -161,4 +173,16 @@ for mysub in subredditnames:
 
     print(' ')
     print('---')
-    print('I added '+str(commsadded)+' comment(s).')        
+    print('I added '+str(commsadded)+' comment(s).')     
+
+
+etime = time. time()
+telm = math.floor((etime - stime)/60)
+tels = (etime - stime) - telm*60
+print(' ')
+print('---')
+print('I added a total of '+str(totalcount)+' comment(s).')     
+print(' ')
+print("Time elapsed = %d"%telm + " min %0.2f" %tels+" sec")
+
+

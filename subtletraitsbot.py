@@ -3,7 +3,7 @@ import pdb
 import re
 import os
 
-SUBREDDIT_NAME = 'dota2dadjokes'
+SUBREDDIT_NAME = 'subtleindiantraits'
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 USERNAME = 'justindianstuff'
 PASSWORD = 'Robinishood69'

@@ -3,15 +3,13 @@ import pdb
 import re
 import os
 
-SUBREDDIT_NAME = 'all'
-KEYWORDS = ['just indian', 'indian things', 'subtle indian', 'indian traits', 'bakchodi']
+SUBREDDIT_NAME = 'Cricket'
+KEYWORDS = ['india']
 USERNAME = 'justindianstuff'
 PASSWORD = 'Robinishood69'
 CLIENT_ID = 'VRi20mq9xuDKuQ'
 CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk' 
 USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
-
-redditor = reddit.redditor('apocalyptic_cow')
 
 # Create the Reddit instance and log in
 reddit = praw.Reddit('bot')
@@ -38,20 +36,20 @@ else:
 
 # Pull the hottest 10 entries from a subreddit of your choosing
 subreddit = reddit.subreddit(SUBREDDIT_NAME)
-for submission in redditor.posts.new(limit=5):
-    print(submission.title)
+for submission in subreddit.new(limit=1000):
 
     # Make sure you didn't already reply to this post
-    # if submission.id not in posts_replied_to:
+    if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False):
 
-    #     # Not case sensitive
-    #     # if re.search("Indian mom", submission.title, re.IGNORECASE):
-    #     # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
-    #     submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.")
-    #     print("Bot replying to : ", submission.title)
+        # Not case sensitive
+        # if re.search("Indian mom", submission.title, re.IGNORECASE):
+        if any(k.lower() in submission.title.lower() for k in KEYWORDS):
+            print(submission.title)
+            # submission.reply("This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it.")
+            # print("Bot replying to : ", submission.title)
 
-    #     # Store id in list
-    #     posts_replied_to.append(submission.id)
+        # Store id in list
+        posts_replied_to.append(submission.id)
 
 # Write updated list to file
 with open("posts_replied_to.txt", "w") as f:

@@ -84,7 +84,6 @@ for mysub in subredditnames:
                 # Reply
                 submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
-                time.sleep(5)
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
@@ -110,9 +109,7 @@ for mysub in subredditnames:
             if any(k.lower() in submission.title.lower() for k in KEYWORDS):
                 # Reply
                 submission.reply(POSTREPLY)
-                print("Bot replying to : ", submission.title)
-                time.sleep(5)
-
+                print("Bot replying to : ", submission.title)              
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
@@ -138,8 +135,6 @@ for mysub in subredditnames:
                 # Reply
                 submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
-                time.sleep(5)
-
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1
@@ -166,8 +161,6 @@ for mysub in subredditnames:
                 # Reply
                 submission.reply(POSTREPLY)
                 print("Bot replying to : ", submission.title)
-                time.sleep(5)
-
                 # Store id in list
                 posts_replied_to.append(submission.id)
                 commsadded = commsadded + 1

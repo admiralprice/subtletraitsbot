@@ -17,19 +17,19 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 # subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
 # Cricket returns timeout, maybe the bot has seen a lot of negative karma
-subredditnames = ['askreddit', 'aww', 'BikiniBottomTwitter', 'BossFight', 'CozyPlaces', 'CricketShitpost', 'ExplainLikeImFive',  'FoodPorn', 'funny', 'ImaginaryMonsters', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits', 'TIFU', 'Tinder']
+subredditnames = ['askreddit', 'aww', 'BikiniBottomTwitter', 'BossFight', 'CozyPlaces', 'CricketShitpost','Cringetopia', 'ExplainLikeImFive',  'FoodPorn', 'funny', 'ImaginaryMonsters', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
 
 POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^Comment ^^to ^^summon ^^my ^^nasty ^^idiot ^^moron ^^human."
 
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 
-NEW_LIMIT = 1000
-RISING_LIMIT = 1000
-HOT_LIMIT = 1000
-TOP_LIMIT = 1000
+NEW_LIMIT = 500
+RISING_LIMIT = 400
+HOT_LIMIT = 300
+TOP_LIMIT = 200
 NSFW_FLAG = False
-COMMENTLIM = 100
-COMMENTMINSCORE = 1
+COMMENTLIM = None
+COMMENTMINSCORE = 0
 # and (submission.over_18 == NSFW_FLAG) 
 
 totalcount = 0
@@ -186,7 +186,7 @@ comdel = 0
 comments = reddit.user.me().comments.new(limit=COMMENTLIM) 
 for comment in comments:
     if comment.score < COMMENTMINSCORE:
-        print (str(comment.score)+' - '+comment.body)
+        print (str(comment.subreddit)+' - '+str(comment.submission.title))
         comdel = comdel + 1
         comment.delete()
 

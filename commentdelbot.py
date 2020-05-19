@@ -18,7 +18,7 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 # subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
 # Cricket returns timeout, maybe the bot has seen a lot of negative karma
 COMMENTLIM = 100
-COMMENTMINSCORE = 1
+COMMENTMINSCORE = 0
 # and (submission.over_18 == NSFW_FLAG) 
 
 totalcount = 0
@@ -41,7 +41,7 @@ comdel = 0
 comments = reddit.user.me().comments.new(limit=COMMENTLIM) 
 for comment in comments:
     if comment.score < COMMENTMINSCORE:
-        print (str(comment.score)+' - '+comment.body)
+        print (str(comment.subreddit)+' - '+str(comment.submission.title))
         comdel = comdel + 1
         comment.delete()
 

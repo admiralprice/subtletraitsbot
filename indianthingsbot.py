@@ -16,8 +16,10 @@ CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
 USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 # subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
-# Cricket returns timeout, maybe the bot has seen a lot of negative karma
-subredditnames = ['askreddit', 'aww', 'BikiniBottomTwitter', 'BossFight', 'CozyPlaces', 'CricketShitpost','Cringetopia', 'ExplainLikeImFive',  'FoodPorn', 'funny', 'ImaginaryMonsters', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
+# Cricket returns timeout, maybe the bot has seen a lot of negative karma. Cringetopia will be added  after improving commment kkarma. Cozyplaces
+# BossFights, explainlikeimfive,imaginarymonsters removed
+
+subredditnames = ['askreddit', 'aww', 'BikiniBottomTwitter', 'CricketShitpost',  'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
 
 POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^Comment ^^to ^^summon ^^my ^^nasty ^^idiot ^^moron ^^human."
 
@@ -75,7 +77,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -101,7 +103,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -126,7 +128,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):
@@ -152,7 +154,7 @@ for mysub in subredditnames:
         # print(submission.title)
 
         # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False):
+        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
 
             # Not case sensitive
             # if re.search("Indian mom", submission.title, re.IGNORECASE):

@@ -3,7 +3,7 @@ import pdb
 import re
 import os
 
-subredditnames = ['SaimanSays','IndianMeyMeys','indianmemecompany','bollywoodmemes','Indiangirlsontinder']#'indianpeoplequora','bakchodi','indianpeoplefacebook','IndianDankMemes']
+subredditnames = ['IndianFootball','Chodi','SaimanSays','IndianMeyMeys','indianmemecompany','bollywoodmemes','Indiangirlsontinder','indianpeoplequora','bakchodi','indianpeoplefacebook','IndianDankMemes']
 Head = "Invitation to r/subtleindiantraits"
 Mess = "Hey, there fellow Memelord, a really quick invite to r/subtleindiantraits!\n\nWe are a simple community. We see anything Indian, we take pride and make memes. Ghalib ke sher ho, ya mummy ki chappal. Sabse pyaar hai hume. Aur yahi pyaar failane hum aapko saadar aamantrit karte hai.\n\nHelp us grow with your creativity.\n\nShukriya!\n\nYour friendly neighbourhood Indian bot.\n\n............\n\n^Reply ^'babajikibooti' ^and ^I'll ^send ^you ^the ^English ^translation ^of ^this ^message."
 #KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
@@ -13,8 +13,8 @@ PASSWORD = 'Robinishood69'
 CLIENT_ID = 'VRi20mq9xuDKuQ'
 CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
 USER_AGENT = 'just indian things user message bot v1.0 by /u/justindianthings'
-TOP_LIMIT = 50
-HOT_LIMIT = 50
+TOP_LIMIT = 75
+HOT_LIMIT = 75
 
 # Create the Reddit instance and log in
 reddit = praw.Reddit('bot')

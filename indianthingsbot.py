@@ -16,12 +16,12 @@ CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
 USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 # subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
-# Cricket returns timeout, maybe the bot has seen a lot of negative karma. Cringetopia will be added  after improving commment kkarma. Cozyplaces
+# Cricket returns timeout, maybe the bot has seen a lot of negative karma. Cringetopia will be added  after improving commment karma. Cozyplaces
 # BossFights, explainlikeimfive,imaginarymonsters removed
 
-subredditnames = ['askreddit', 'aww', 'BikiniBottomTwitter', 'CricketShitpost',  'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
+subredditnames = ['AskReddit', 'aww', 'BikiniBottomTwitter', 'CricketShitpost', 'Cringetopia', 'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
 
-POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^The ^^human ^^is ^^down ^^temporarily ^^due ^^to ^^cyclone ^^Amphan."
+POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^Comment ^^to ^^summon ^^my ^^nasty ^^idiot ^^moron ^^human."
 
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 
@@ -48,6 +48,14 @@ reddit = praw.Reddit(
     username=USERNAME)
 print("Authenticaed as {}".format(reddit.user.me()))
 
+# karmadict is a list of subreddits with negative karma score
+mykarma = reddit.user.karma().items()
+karmadict = {}
+for mkey,mvalue in mykarma: 
+    if mvalue['comment_karma'] < 0:
+        karmadict[mkey.display_name] = mvalue['comment_karma']
+
+
 subcount = 0
 for mysub in subredditnames:    
     subcount = subcount + 1
@@ -56,128 +64,133 @@ for mysub in subredditnames:
     print('---')
     print(str(subcount)+' of '+str(len(subredditnames))+' - Subreddit : '+mysub)        
 
-    # Create a list
-    if not os.path.isfile("posts_replied_to.txt"):
-        posts_replied_to = []
+    if SUBREDDIT_NAME in karmadict:
+        print ("Not sufficient comment karma. Cannot comment.")
 
-    # Or load the list of posts we have replied to
     else:
-        with open("posts_replied_to.txt", "r") as f:
-            posts_replied_to = f.read()
-            posts_replied_to = posts_replied_to.split("\n")
-            posts_replied_to = list(filter(None, posts_replied_to))
 
-    # Pull the hottest 10 entries from a subreddit of your choosing
-    commsadded = 0
-    subreddit = reddit.subreddit(SUBREDDIT_NAME)
+        # Create a list
+        if not os.path.isfile("posts_replied_to.txt"):
+            posts_replied_to = []
 
-    print('new')
+        # Or load the list of posts we have replied to
+        else:
+            with open("posts_replied_to.txt", "r") as f:
+                posts_replied_to = f.read()
+                posts_replied_to = posts_replied_to.split("\n")
+                posts_replied_to = list(filter(None, posts_replied_to))
 
-    for submission in subreddit.new(limit=NEW_LIMIT):
-        # print(submission.title)
+        # Pull the hottest 10 entries from a subreddit of your choosing
+        commsadded = 0
+        subreddit = reddit.subreddit(SUBREDDIT_NAME)
 
-        # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
+        print('new')
 
-            # Not case sensitive
-            # if re.search("Indian mom", submission.title, re.IGNORECASE):
-            # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
-            if any(k.lower() in submission.title.lower() for k in KEYWORDS):
-                # Reply
-                submission.reply(POSTREPLY)
-                print("Bot replying to : ", submission.title)
-                # Store id in list
-                posts_replied_to.append(submission.id)
-                commsadded = commsadded + 1
-                totalcount = totalcount + 1
+        for submission in subreddit.new(limit=NEW_LIMIT):
+            # print(submission.title)
 
+            # Make sure you didn't already reply to this post
+            if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
 
-    # Write updated list to file
-    with open("posts_replied_to.txt", "w") as f:
-        for post_id in posts_replied_to:
-            f.write(post_id + "\n")
-
-    print('rising')
-
-    for submission in subreddit.rising(limit=RISING_LIMIT):
-        # print(submission.title)
-
-        # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
-
-            # Not case sensitive
-            # if re.search("Indian mom", submission.title, re.IGNORECASE):
-            # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
-            if any(k.lower() in submission.title.lower() for k in KEYWORDS):
-                # Reply
-                submission.reply(POSTREPLY)
-                print("Bot replying to : ", submission.title)              
-                # Store id in list
-                posts_replied_to.append(submission.id)
-                commsadded = commsadded + 1
-                totalcount = totalcount + 1
-
-    # Write updated list to file
-    with open("posts_replied_to.txt", "w") as f:
-        for post_id in posts_replied_to:
-            f.write(post_id + "\n")
-
-    print('hot')
-
-    for submission in subreddit.hot(limit=HOT_LIMIT):
-        # print(submission.title)
-
-        # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
-
-            # Not case sensitive
-            # if re.search("Indian mom", submission.title, re.IGNORECASE):
-            # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
-            if any(k.lower() in submission.title.lower() for k in KEYWORDS):
-                # Reply
-                submission.reply(POSTREPLY)
-                print("Bot replying to : ", submission.title)
-                # Store id in list
-                posts_replied_to.append(submission.id)
-                commsadded = commsadded + 1
-                totalcount = totalcount + 1
-
-    # Write updated list to file
-    with open("posts_replied_to.txt", "w") as f:
-        for post_id in posts_replied_to:
-            f.write(post_id + "\n")
+                # Not case sensitive
+                # if re.search("Indian mom", submission.title, re.IGNORECASE):
+                # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
+                if any(k.lower() in submission.title.lower() for k in KEYWORDS):
+                    # Reply
+                    submission.reply(POSTREPLY)
+                    print("Bot replying to : ", submission.title)
+                    # Store id in list
+                    posts_replied_to.append(submission.id)
+                    commsadded = commsadded + 1
+                    totalcount = totalcount + 1
 
 
-    print('top')
+        # Write updated list to file
+        with open("posts_replied_to.txt", "w") as f:
+            for post_id in posts_replied_to:
+                f.write(post_id + "\n")
 
-    for submission in subreddit.top(limit=TOP_LIMIT):
-        # print(submission.title)
+        print('rising')
 
-        # Make sure you didn't already reply to this post
-        if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
+        for submission in subreddit.rising(limit=RISING_LIMIT):
+            # print(submission.title)
 
-            # Not case sensitive
-            # if re.search("Indian mom", submission.title, re.IGNORECASE):
-            # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
-            if any(k.lower() in submission.title.lower() for k in KEYWORDS):
-                # Reply
-                submission.reply(POSTREPLY)
-                print("Bot replying to : ", submission.title)
-                # Store id in list
-                posts_replied_to.append(submission.id)
-                commsadded = commsadded + 1
-                totalcount = totalcount + 1
+            # Make sure you didn't already reply to this post
+            if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
+
+                # Not case sensitive
+                # if re.search("Indian mom", submission.title, re.IGNORECASE):
+                # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
+                if any(k.lower() in submission.title.lower() for k in KEYWORDS):
+                    # Reply
+                    submission.reply(POSTREPLY)
+                    print("Bot replying to : ", submission.title)              
+                    # Store id in list
+                    posts_replied_to.append(submission.id)
+                    commsadded = commsadded + 1
+                    totalcount = totalcount + 1
+
+        # Write updated list to file
+        with open("posts_replied_to.txt", "w") as f:
+            for post_id in posts_replied_to:
+                f.write(post_id + "\n")
+
+        print('hot')
+
+        for submission in subreddit.hot(limit=HOT_LIMIT):
+            # print(submission.title)
+
+            # Make sure you didn't already reply to this post
+            if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
+
+                # Not case sensitive
+                # if re.search("Indian mom", submission.title, re.IGNORECASE):
+                # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
+                if any(k.lower() in submission.title.lower() for k in KEYWORDS):
+                    # Reply
+                    submission.reply(POSTREPLY)
+                    print("Bot replying to : ", submission.title)
+                    # Store id in list
+                    posts_replied_to.append(submission.id)
+                    commsadded = commsadded + 1
+                    totalcount = totalcount + 1
+
+        # Write updated list to file
+        with open("posts_replied_to.txt", "w") as f:
+            for post_id in posts_replied_to:
+                f.write(post_id + "\n")
+
+
+        print('top')
+
+        for submission in subreddit.top(limit=TOP_LIMIT):
+            # print(submission.title)
+
+            # Make sure you didn't already reply to this post
+            if (submission.id not in posts_replied_to) and (submission.archived == False) and (submission.locked == False) and (submission.author != "apocalyptic_cow"):
+
+                # Not case sensitive
+                # if re.search("Indian mom", submission.title, re.IGNORECASE):
+                # if has_keyword = any(k.lower() in post.title.lower() for k in KEYWORDS):
+                if any(k.lower() in submission.title.lower() for k in KEYWORDS):
+                    # Reply
+                    submission.reply(POSTREPLY)
+                    print("Bot replying to : ", submission.title)
+                    # Store id in list
+                    posts_replied_to.append(submission.id)
+                    commsadded = commsadded + 1
+                    totalcount = totalcount + 1
 
 
 
-    # Write updated list to file
-    with open("posts_replied_to.txt", "w") as f:
-        for post_id in posts_replied_to:
-            f.write(post_id + "\n")
+        # Write updated list to file
+        with open("posts_replied_to.txt", "w") as f:
+            for post_id in posts_replied_to:
+                f.write(post_id + "\n")
 
-    print(' ')
-    print('---')
-    print('I added '+str(commsadded)+' comment(s).')     
+        print(' ')
+        print('---')
+        print('I added '+str(commsadded)+' comment(s).')     
 
 
 # Search 200 comments for downvotes, if they have -1, delete it.

@@ -21,7 +21,7 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 subredditnames = ['AskReddit', 'aww', 'BikiniBottomTwitter', 'CricketShitpost', 'Cringetopia', 'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
 
-POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^Comment ^^to ^^summon ^^my ^^nasty ^^idiot ^^moron ^^human."
+POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^I ^am ^just ^a ^bot, ^what ^do ^I ^know? ^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^The ^humans ^are ^all ^busy ^coitussing, ^I ^doubt ^they'll ^bother ^with ^anything ^I ^say. ^Avadakedavra!."
 
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 
@@ -55,6 +55,9 @@ for mkey,mvalue in mykarma:
     if mvalue['comment_karma'] < 0:
         karmadict[mkey.display_name] = mvalue['comment_karma']
 
+print("I have low karma/am banned in the following subs - ")
+for karmakey in karmadict.keys():
+    print(karmakey)
 
 subcount = 0
 for mysub in subredditnames:    

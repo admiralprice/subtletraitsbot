@@ -17,7 +17,7 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 # subredditnames = ['memes','meme','subtleasiantraits','askreddit', 'jokes', 'funny','aww','mildlyinteresting','Showerthoughts']
 # Cricket returns timeout, maybe the bot has seen a lot of negative karma
-COMMENTLIM = 100
+COMMENTLIM = None
 COMMENTMINSCORE = 0
 # and (submission.over_18 == NSFW_FLAG) 
 

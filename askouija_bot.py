@@ -19,7 +19,7 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 
 subreddits = ['askouija']
 
-POSTREPLY = "Spirits, this seems like a r/subtleindiantraits moment. Guessed by a bot. Beep boop borp, I have kissed zorg.\n\n^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^^Comment ^^to ^^summon ^^my ^^nasty ^^idiot ^^moron ^^human."
+POSTREPLY = "Spirits, this seems like a r/subtleindiantraits moment. Guessed by a bot. Beep boop borp, I have kissed zorg.\n\n^I ^am ^just ^a ^bot, ^what ^do ^I ^know? ^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^The ^humans ^are ^all ^busy ^coitussing, ^I ^doubt ^they'll ^bother ^with ^anything ^I ^say. ^Avadakedavra!."
 
 KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 

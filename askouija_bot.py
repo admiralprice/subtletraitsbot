@@ -31,7 +31,7 @@ HOT_LIMIT = 1000
 TOP_LIMIT = 1000
 NSFW_FLAG = False
 COMMENTLIM = 100
-COMMENTMINSCORE = 1
+COMMENTMINSCORE = 0
 # and (submission.over_18 == NSFW_FLAG) 
 
 totalcount = 0

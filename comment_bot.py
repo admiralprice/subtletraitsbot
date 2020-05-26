@@ -19,7 +19,7 @@ USER_AGENT = 'just indian things post comment bot v1.0 by /u/justindianthings'
 # Cricket returns timeout, maybe the bot has seen a lot of negative karma. Cringetopia will be added  after improving commment karma. Cozyplaces
 # BossFights, explainlikeimfive,imaginarymonsters removed
 
-subredditnames = ['AskReddit', 'aww', 'BikiniBottomTwitter', 'CricketShitpost', 'Cringetopia', 'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
+subredditnames = [ 'aww', 'BikiniBottomTwitter', 'CricketShitpost', 'Cringetopia', 'FoodPorn', 'funny', 'jokes', 'meme', 'memes', 'mildlyinteresting','Nostalgia',  'Showerthoughts', 'subtleasiantraits','terriblefacebookmemes', 'TIFU', 'Tinder']
 
 POSTREPLY = "This seems like a r/subtleindiantraits moment. Sent by a bot. Beep boop borp, I have kissed zorg.\n\n^I ^am ^just ^a ^bot, ^what ^do ^I ^know? ^If ^this ^is ^a ^mistake, ^downvote ^the ^comment ^and ^I ^will ^delete ^it. ^The ^humans ^are ^all ^busy ^coitussing, ^I ^doubt ^they'll ^bother ^with ^anything ^I ^say. ^Avadakedavra!."
 

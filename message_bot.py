@@ -14,8 +14,8 @@ PASSWORD = 'Robinishood69'
 CLIENT_ID = 'VRi20mq9xuDKuQ'
 CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
 USER_AGENT = 'just indian things user message bot v1.0 by /u/justindianthings'
-TOP_LIMIT = 75
-HOT_LIMIT = 75
+TOP_LIMIT = 375
+HOT_LIMIT = 375
 
 # Create the Reddit instance and log in
 reddit = praw.Reddit('bot')

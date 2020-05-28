@@ -2,6 +2,10 @@ import praw
 import pdb
 import re
 import os
+import time
+import math
+
+stime = time.time()
 
 subredditnames = ['IndianFootball','Chodi','SaimanSays','IndianMeyMeys','indianmemecompany','bollywoodmemes','Indiangirlsontinder','indianpeoplequora','bakchodi','indianpeoplefacebook','IndianDankMemes']
 Head = "Invitation to r/subtleindiantraits"
@@ -92,3 +96,11 @@ for mysub in subredditnames :
 
 print("Total messages sent:", messages_sent)
 #update the list
+
+etime = time. time()
+telm = math.floor((etime - stime)/60)
+tels = (etime - stime) - telm*60
+print(' ')
+print('---')
+print(' ')
+print("Time elapsed = %d"%telm + " min %0.2f" %tels+" sec")

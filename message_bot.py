@@ -59,7 +59,7 @@ for mysub in subredditnames :
     #start for top posts
     print("Top is on!")
 
-    for submission in subreddit.top(limit = TOP_LIMIT):
+    for submission in subreddit.top("month",limit = TOP_LIMIT):
         try:
             if (submission.author.name not in user_messaged_to) :# Make sure you didn't already message the user
                     # Not case sensitive

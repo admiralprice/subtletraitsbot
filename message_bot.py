@@ -6,8 +6,8 @@ import time
 import math
 
 stime = time.time()
-
-subredditnames = ['bakchodi','bollywoodmemes','Chodi','desimemes','indiameme','IndianDankMemes','IndianFootball','Indiangirlsontinder','indianpeoplequora','indianpeoplefacebook','IndianMeyMeys','indianmemecompany','MandirGang','SaimanSays']
+# 'indianpeoplefacebook',
+subredditnames = ['bakchodi','bollywoodmemes','Chodi','desimemes','indiameme','IndianDankMemes','IndianFootball','Indiangirlsontinder','indianpeoplequora','IndianMeyMeys','indianmemecompany','MandirGang','SaimanSays']
 Head = "Invitation to r/subtleindiantraits"
 Mess = "Hey, there fellow Memelord, a really quick invite to r/subtleindiantraits!\n\nWe are a simple community. We see anything Indian, we take pride and make memes. Ghalib ke sher ho, ya mummy ki chappal. Sabse pyaar hai hume. Aur yahi pyaar failane hum aapko saadar aamantrit karte hai.\n\nHelp us grow with your creativity.\n\nShukriya!\n\nYour friendly neighbourhood Indian bot.\n\n............\n\n**T R A N S L A T I O N**\n\n*roses are red*\n\n*indians are cool*\n\n*i dare ya, i double dare ya*\n\n*to find a sub this cool*\n\n...........\n\n^(The translator was fired as he got lost in translation. KBye.)"
 

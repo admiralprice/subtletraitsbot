@@ -72,7 +72,6 @@ for mysub in subredditnames :
                 messages_sent = messages_sent + 1
                 user_messaged_to.append(a)
         except :
-                print("Deleted User-Continue to Next")
                 continue
     #start for hot
     print("Hot is on!")
@@ -89,7 +88,6 @@ for mysub in subredditnames :
                 messages_sent = messages_sent + 1
                 user_messaged_to.append(a)
         except :
-                print("Deleted User-Continue to Next")
                 continue
     with open("user_messaged_to.txt",'w') as f:
         for post_id in user_messaged_to:

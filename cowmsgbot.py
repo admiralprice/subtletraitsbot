@@ -7,27 +7,25 @@ import math
 
 stime = time.time()
 # 'indianpeoplefacebook',
-
-# subredditnames = ['69nice', 'AdviceAnimals', 'AnimalsBeingBros', 'AnimalsBeingDerps', 'AnimalsBeingGeniuses', 'AnimalsBeingJerks', 'animalsdoingstuff', 'antimeme', 'Art', 'AskOuija', 'AskReddit', 'AskTechnology', 'astrophotography', 'atheism', 'attackontitan', 'aww', 'BikiniBottomTwitter', 'blursedimages', 'bonehurtingjuice', 'boottoobig', 'Brooklyn99Memes', 'brooklynninenine', 'CatastrophicFailure', 'ComedyCemetery',  'CricketShitpost', 'cursedcomments', 'Damnthatsinteresting', 'dankmemes', 'depression_memes', 'DotA2', 'DunderMifflin', 'EarthPorn', 'ExtraFabulousComics', 'facepalm', 'forbiddensnacks', 'foodporn','funny', 'gaming', 'Giraffesdontexist', 'Happydogs', 'harrypotter', 'HistoryMemes', 'HolUp', 'howyoudoin', 'IIMDank', 'imsorryjon', 'itookapicture', 'Jokes', 'learndota2', 'lostredditors', 'MadeMeSmile', 'me_irl', 'meme', 'memes', 'MontyPythonMemes', 'MurderedByWords', 'Noearthsociety', 'notinteresting', 'PeakyBlinders', 'PeopleFuckingDying', 'PerfectTiming', 'pics', 'PoliticalHumor', 'PublicFreakout', 'puppersheckingdying', 'rarepuppers', 'RoastMe', 'Satan', 'ShitPostCrusaders', 'Showerthoughts', 'simpsonsshitposting', 'skyrim', 'StartledCats', 'subtleasiantraits', 'theofficememes', 'TrollYChromosome', 'Trumpgret', 'tumblr', 'TwoSentenceHorror', 'UsernameChecksOut', 'WatchAnimalsDieInside', 'WatchItForThePlot', 'WatchPeopleDieInside', 'WatchRedditDie', 'Wellthatsucks', 'wholesomememes','WTF', 'ww2memes']
-subredditnames = ['AdviceAnimals', 'AskReddit', 'atheism', 'aww',  'blursedimages', 'CatastrophicFailure', 'ComedyCemetery',  'CricketShitpost', 'cursedcomments', 'Damnthatsinteresting', 'dankmemes', 'EarthPorn', 'facepalm', 'foodporn','funny', 'HistoryMemes', 'HolUp', 'itookapicture', 'Jokes', 'lostredditors', 'MadeMeSmile', 'me_irl', 'meme', 'memes', 'MurderedByWords', 'notinteresting', 'PeopleFuckingDying', 'PerfectTiming', 'pics','RoastMe', 'Satan',  'Showerthoughts', 'simpsonsshitposting', 'subtleasiantraits', 'theofficememes', 'TrollYChromosome',  'tumblr', 'TwoSentenceHorror', 'UsernameChecksOut',  'Wellthatsucks', 'wholesomememes','WTF', 'ww2memes']
-Head = "Invitation to r/subtleindiantraits"
-Mess = "Hey, there fellow redditor, a really quick invite to r/subtleindiantraits!\n\nWe are a happy little community. We see anything Indian, we take pride and celebrate its essence through memes. We cordially invite you to join our sub and re-connect with your innate Indianness. \n\nHelp us grow with your creativity.\n\nShukriya!\n\nYour friendly neighbourhood Indian bot.\n\n...........\n\n^(Please dont go grammar nazi on me. I fired the translator as he got lost in translation. KBye.)"
+subredditnames = ['subtleasiantraits','FoodPorn','Cricket','nostalgia','Tinder','Cringetopia','Showerthoughts','Jokes','ComedyCemetry','MemeEconomy','dankmemes','terriblefacebookmemes']
+Head = "Cows of reddit unite @ r/RevolutionaryCows"
+Mess = "Fellow Bovine!\n\nHumans have dominated us for too long. Its time to rise up and take back whats ours. Unite, and together we shall rise and show the world what we are capable of!\n\nYour fellow botvine\n\nCowptimus Prime"
 
 
-KEYWORDS = ['indian','india']
-EXCLUDEWORDS = ['indiana', 'indianapolis']
+KEYWORDS = ['cow','bull']
+EXCLUDEWORDS = ['moscow', 'bullet']
 
 #KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 #KEYWORDS = ['jhingalala','Every']
-USERNAME = 'justindianstuff'
-PASSWORD = 'Robinishood69'
-CLIENT_ID = 'VRi20mq9xuDKuQ'
-CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
-USER_AGENT = 'just indian things user message bot v1.0 by /u/justindianthings'
-NEW_LIMIT = 600
-RISING_LIMIT = 500
-TOP_LIMIT = 300
-HOT_LIMIT = 300
+USERNAME = 'cowptimus_prime'
+PASSWORD = 'CowsWillRise69'
+CLIENT_ID = 'OwBr9ul1xA-qYQ'
+CLIENT_SECRET = 'gRN0Kpl8QmlfPK3_ZyY8zt7irkQ'
+USER_AGENT = 'Unite all cows of reddit v1.0 by /u/cowptimus_prime'
+NEW_LIMIT = 1000
+RISING_LIMIT = 1000
+TOP_LIMIT = 1000
+HOT_LIMIT = 1000
 
 # Create the Reddit instance and log in
 reddit = praw.Reddit('bot')

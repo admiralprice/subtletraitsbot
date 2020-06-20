@@ -14,11 +14,11 @@ Mess = "Hey, there fellow redditor, a really quick invite to r/subtleindiantrait
 
 #KEYWORDS = ['asian parent','asian kid','indian parent','indian kid', 'so india','desi things', 'things india', 'subtle india', 'indian trait', 'bakchodi', 'indians do', 'india']
 #KEYWORDS = ['jhingalala','Every']
-USERNAME = 'justindianstuff'
-PASSWORD = 'Robinishood69'
-CLIENT_ID = 'VRi20mq9xuDKuQ'
-CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
-USER_AGENT = 'just indian things user message bot v1.0 by /u/justindianthings'
+USERNAME = 'notsosubtleindianbot'
+PASSWORD = 'JustMessing69'
+CLIENT_ID = 'FlD33lKGw0QzJw'
+CLIENT_SECRET = 'cXRAk3Y93AO0jwqol53woZa93Gk'
+USER_AGENT = 'just indian things user message bot v1.1 by /u/notsosubtleindianbot'
 TOP_LIMIT = 1000
 HOT_LIMIT = 1000
 

@@ -1,0 +1,29 @@
+notsosubtleindianbot
+JustMessing69
+
+USERNAME = 'notsosubtleindianbot'
+PASSWORD = 'JustMessing69'
+CLIENT_ID = 'FlD33lKGw0QzJw'
+CLIENT_SECRET = 'cXRAk3Y93AO0jwqol53woZa93Gk'
+USER_AGENT = 'just indian things user message bot v1.1 by /u/notsosubtleindianbot'
+
+---
+
+justindianstuff
+Robinishood69
+
+USERNAME = 'justindianstuff'
+PASSWORD = 'Robinishood69'
+CLIENT_ID = 'VRi20mq9xuDKuQ'
+CLIENT_SECRET = 'YRp4P0Ep6p0ewL1bAeZ28oC-BPk'
+USER_AGENT = 'just indian things user message bot v1.0 by /u/justindianthings'
+
+---
+cowptimus_prime
+CowsWillRise69
+
+USERNAME = 'cowptimus_prime'
+PASSWORD = 'CowsWillRise69'
+CLIENT_ID = 'OwBr9ul1xA-qYQ'
+CLIENT_SECRET = 'gRN0Kpl8QmlfPK3_ZyY8zt7irkQ'
+USER_AGENT = 'Unite all cows of reddit v1.0 by /u/cowptimus_prime'
